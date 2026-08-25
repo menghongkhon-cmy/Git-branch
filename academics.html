@@ -1,72 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academics — Greenfield High School</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics — Greenfield High School</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="brand"><span class="crest">G</span> Greenfield High</a>
-    <button class="menu-btn" aria-label="Toggle menu">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="academics.html">Academics</a></li>
-        <li><a href="admissions.html">Admissions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <!-- Header / Navigation -->
+  <header class="sticky-top bg-white border-bottom shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container">
+      <a class="navbar-brand fw-bold text-success d-flex align-items-center gap-2" href="index.html">
+        <span class="badge bg-success rounded-circle p-2">G</span> Greenfield High
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="primaryNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-  </div>
-</header>
+  </header>
 
-<div class="page-hero">
-  <h1>Academics</h1>
-  <p>A well-rounded curriculum built for every kind of learner.</p>
-</div>
+  <main class="flex-grow-1">
+    <!-- Hero Section -->
+    <section class="bg-dark text-white text-center py-5 mb-5 position-relative overflow-hidden" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+      <div class="container py-4 my-2">
+        <h1 class="display-4 fw-bold mb-3">Academics</h1>
+        <p class="lead mb-0 mx-auto" style="max-width: 600px;">A well-rounded curriculum built for every kind of learner.</p>
+      </div>
+    </section>
 
-<main>
-  <section>
-    <p class="eyebrow">Departments</p>
-    <h2>Core subjects</h2>
-    <div class="grid grid-3">
-      <div class="card"><h3>🔬 Science</h3><p>Biology, chemistry, physics, and hands-on STEM labs and robotics club.</p></div>
-      <div class="card"><h3>➗ Mathematics</h3><p>From algebra through AP Calculus, with peer tutoring available.</p></div>
-      <div class="card"><h3>📖 Humanities</h3><p>Literature, history, and world languages including Spanish and Mandarin.</p></div>
-      <div class="card"><h3>🎭 Arts</h3><p>Studio art, band, choir, and a fully-staffed theater program.</p></div>
-      <div class="card"><h3>💻 Technology</h3><p>Computer science, coding electives, and a student-run tech help desk.</p></div>
-      <div class="card"><h3>⚽ Physical Education</h3><p>Health, fitness, and 15+ competitive sports teams.</p></div>
+    <!-- Core Subject Departments Grid -->
+    <section class="container mb-5">
+      <div class="text-center mb-4">
+        <span class="text-success text-uppercase fw-bold tracking-wider fs-6">Departments</span>
+        <h2 class="fw-bold">Core subjects</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">🔬 Science</h3>
+              <p class="card-text text-muted">Biology, chemistry, physics, and hands-on STEM labs and robotics club.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">➗ Mathematics</h3>
+              <p class="card-text text-muted">From algebra through AP Calculus, with peer tutoring available.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">📖 Humanities</h3>
+              <p class="card-text text-muted">Literature, history, and world languages including Spanish and Mandarin.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">🎭 Arts</h3>
+              <p class="card-text text-muted">Studio art, band, choir, and a fully-staffed theater program.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">💻 Technology</h3>
+              <p class="card-text text-muted">Computer science, coding electives, and a student-run tech help desk.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <h3 class="h5 card-title fw-bold text-dark">⚽ Physical Education</h3>
+              <p class="card-text text-muted">Health, fitness, and 15+ competitive sports teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly Schedule Table -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card border-0 shadow-sm p-4">
+            <div class="card-body">
+              <div class="mb-4 text-center">
+                <span class="text-success text-uppercase fw-bold tracking-wider fs-6">Class of 2026</span>
+                <h2 class="fw-bold">Weekly schedule sample</h2>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col" class="py-3 text-center" style="width: 15%;">Period</th>
+                      <th scope="col" class="py-3" style="width: 35%;">Time</th>
+                      <th scope="col" class="py-3">Subject</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">1</span></td>
+                      <td class="text-muted fw-semibold">8:00 – 8:50</td>
+                      <td class="fw-semibold">Mathematics</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">2</span></td>
+                      <td class="text-muted fw-semibold">9:00 – 9:50</td>
+                      <td class="fw-semibold">Science</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">3</span></td>
+                      <td class="text-muted fw-semibold">10:00 – 10:50</td>
+                      <td class="fw-semibold">English</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">4</span></td>
+                      <td class="text-muted fw-semibold">11:00 – 11:50</td>
+                      <td class="fw-semibold">History</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">5</span></td>
+                      <td class="text-muted fw-semibold">12:30 – 1:20</td>
+                      <td class="fw-semibold">Elective</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success fs-6">6</span></td>
+                      <td class="text-muted fw-semibold">1:30 – 2:20</td>
+                      <td class="fw-semibold">Physical Education</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <div class="container text-center">
+      <p class="mb-1">&copy; <span id="year"></span> Greenfield High School · 123 Learning Lane, Springfield</p>
+      <p class="mb-0">
+        <a href="tel:5551234567" class="text-white-50 text-decoration-none me-2">(555) 123-4567</a> · 
+        <a href="mailto:info@greenfieldhigh.edu" class="text-white-50 text-decoration-none ms-2">info@greenfieldhigh.edu</a>
+      </p>
     </div>
-  </section>
+  </footer>
 
-  <section>
-    <p class="eyebrow">Class of 2026</p>
-    <h2>Weekly schedule sample</h2>
-    <table>
-      <thead>
-        <tr><th>Period</th><th>Time</th><th>Subject</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>8:00 – 8:50</td><td>Mathematics</td></tr>
-        <tr><td>2</td><td>9:00 – 9:50</td><td>Science</td></tr>
-        <tr><td>3</td><td>10:00 – 10:50</td><td>English</td></tr>
-        <tr><td>4</td><td>11:00 – 11:50</td><td>History</td></tr>
-        <tr><td>5</td><td>12:30 – 1:20</td><td>Elective</td></tr>
-        <tr><td>6</td><td>1:30 – 2:20</td><td>Physical Education</td></tr>
-      </tbody>
-    </table>
-  </section>
-</main>
-
-<footer>
-  <p>&copy; <span id="year"></span> Greenfield High School · 123 Learning Lane, Springfield</p>
-  <p>(555) 123-4567 · <a href="mailto:info@greenfieldhigh.edu">info@greenfieldhigh.edu</a></p>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
