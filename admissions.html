@@ -1,83 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admissions — Greenfield High School</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions — Greenfield High School</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="brand"><span class="crest">G</span> Greenfield High</a>
-    <button class="menu-btn" aria-label="Toggle menu">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="academics.html">Academics</a></li>
-        <li><a href="admissions.html">Admissions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <!-- Header / Navigation -->
+  <header class="sticky-top bg-white border-bottom shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light container">
+      <a class="navbar-brand fw-bold text-success d-flex align-items-center gap-2" href="index.html">
+        <span class="badge bg-success rounded-circle p-2">G</span> Greenfield High
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="primaryNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="admissions.html">Admissions</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-  </div>
-</header>
+  </header>
 
-<div class="page-hero">
-  <h1>Admissions</h1>
-  <p>Everything you need to apply to Greenfield High.</p>
-</div>
+  <main class="flex-grow-1">
+    <!-- Hero Section -->
+    <section class="bg-dark text-white text-center py-5 mb-5 position-relative overflow-hidden" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+      <div class="container py-4 my-2">
+        <h1 class="display-4 fw-bold mb-3">Admissions</h1>
+        <p class="lead mb-0 mx-auto" style="max-width: 600px;">Everything you need to apply to Greenfield High.</p>
+      </div>
+    </section>
 
-<main>
-  <section>
-    <p class="eyebrow">How to Apply</p>
-    <h2>Four simple steps</h2>
-    <div class="grid grid-2">
-      <div class="card"><h3>1. Submit Application</h3><p>Complete our online application form with student and guardian details.</p></div>
-      <div class="card"><h3>2. Provide Records</h3><p>Submit transcripts and records from the student's current school.</p></div>
-      <div class="card"><h3>3. Interview</h3><p>Meet with our admissions team for a short, friendly conversation.</p></div>
-      <div class="card"><h3>4. Decision</h3><p>Families are notified of admission decisions within two weeks.</p></div>
+    <!-- Application Steps Section -->
+    <section class="container mb-5">
+      <div class="text-center mb-4">
+        <span class="text-success text-uppercase fw-bold tracking-wider fs-6">How to Apply</span>
+        <h2 class="fw-bold">Four simple steps</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <span class="badge bg-success-subtle text-success fs-6 mb-3">Step 1</span>
+              <h3 class="h5 card-title fw-bold">1. Submit Application</h3>
+              <p class="card-text text-muted">Complete our online application form with student and guardian details.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <span class="badge bg-success-subtle text-success fs-6 mb-3">Step 2</span>
+              <h3 class="h5 card-title fw-bold">2. Provide Records</h3>
+              <p class="card-text text-muted">Submit transcripts and records from the student's current school.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <span class="badge bg-success-subtle text-success fs-6 mb-3">Step 3</span>
+              <h3 class="h5 card-title fw-bold">3. Interview</h3>
+              <p class="card-text text-muted">Meet with our admissions team for a short, friendly conversation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body">
+              <span class="badge bg-success-subtle text-success fs-6 mb-3">Step 4</span>
+              <h3 class="h5 card-title fw-bold">4. Decision</h3>
+              <p class="card-text text-muted">Families are notified of admission decisions within two weeks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements & Key Dates Grid -->
+    <section class="container mb-5">
+      <div class="row g-4">
+        
+        <!-- Requirements Column -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100 p-4">
+            <div class="card-body">
+              <span class="text-success text-uppercase fw-bold tracking-wider fs-6 d-block mb-1">Requirements</span>
+              <h2 class="fw-bold mb-4">What you'll need</h2>
+              <ul class="list-group list-group-flush border-top">
+                <li class="list-group-item bg-transparent px-0 py-3 d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                  <span>Completed application form</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0 py-3 d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                  <span>Most recent report card or transcript</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0 py-3 d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                  <span>One letter of recommendation from a current teacher</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0 py-3 d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                  <span>Proof of residency</span>
+                </li>
+                <li class="list-group-item bg-transparent px-0 py-3 d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                  <span>$50 non-refundable application fee</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Dates Column -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100 p-4">
+            <div class="card-body">
+              <span class="text-success text-uppercase fw-bold tracking-wider fs-6 d-block mb-1">Key Dates</span>
+              <h2 class="fw-bold mb-4">Admissions calendar</h2>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col" class="py-3">Milestone</th>
+                      <th scope="col" class="py-3">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Applications open</td>
+                      <td class="text-muted">September 1</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Priority deadline</td>
+                      <td class="text-muted">January 15</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Interviews</td>
+                      <td class="text-muted">February</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Decisions released</td>
+                      <td class="text-muted">March 1</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Enrollment deadline</td>
+                      <td class="text-muted">April 1</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-success text-white py-5 mb-0">
+      <div class="container text-center py-3">
+        <h2 class="fw-bold mb-3">Ready to Join Greenfield High?</h2>
+        <p class="lead mb-4 mx-auto" style="max-width: 600px;">Take the first step toward a bright future for your student.</p>
+        <a href="contact.html" class="btn btn-light text-success btn-lg px-4 font-weight-bold shadow-sm">Start Your Application</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <div class="container text-center">
+      <p class="mb-1">&copy; <span id="year"></span> Greenfield High School · 123 Learning Lane, Springfield</p>
+      <p class="mb-0">
+        <a href="tel:5551234567" class="text-white-50 text-decoration-none me-2">(555) 123-4567</a> · 
+        <a href="mailto:info@greenfieldhigh.edu" class="text-white-50 text-decoration-none ms-2">info@greenfieldhigh.edu</a>
+      </p>
     </div>
-  </section>
+  </footer>
 
-  <section>
-    <p class="eyebrow">Requirements</p>
-    <h2>What you'll need</h2>
-    <ul class="info-list">
-      <li>Completed application form</li>
-      <li>Most recent report card or transcript</li>
-      <li>One letter of recommendation from a current teacher</li>
-      <li>Proof of residency</li>
-      <li>$50 non-refundable application fee</li>
-    </ul>
-  </section>
-
-  <section>
-    <p class="eyebrow">Key Dates</p>
-    <h2>Admissions calendar</h2>
-    <table>
-      <thead><tr><th>Milestone</th><th>Date</th></tr></thead>
-      <tbody>
-        <tr><td>Applications open</td><td>September 1</td></tr>
-        <tr><td>Priority deadline</td><td>January 15</td></tr>
-        <tr><td>Interviews</td><td>February</td></tr>
-        <tr><td>Decisions released</td><td>March 1</td></tr>
-        <tr><td>Enrollment deadline</td><td>April 1</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section style="text-align:center;">
-    <a href="contact.html" class="btn">Start Your Application</a>
-  </section>
-</main>
-
-<footer>
-  <p>&copy; <span id="year"></span> Greenfield High School · 123 Learning Lane, Springfield</p>
-  <p>(555) 123-4567 · <a href="mailto:info@greenfieldhigh.edu">info@greenfieldhigh.edu</a></p>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
