@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Brew & Bean Coffee</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#FDFBF7',
+                            100: '#F5EBE0',
+                            200: '#E3D5CA',
+                            300: '#D5BDAF',
+                            600: '#8C6D53',
+                            700: '#6F4E37',
+                            800: '#4A3525',
+                            900: '#2C1D11',
+                        },
+                        cream: '#FAF6F0'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom scrollbar for sleek UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5EBE0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D5BDAF;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8C6D53;
+        }
+    </style>
+</head>
+<body class="bg-coffee-50 text-coffee-900 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- 1. Header -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-coffee-200 sticky top-0 z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Back Button & Logo -->
+            <div class="flex items-center space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-coffee-100 flex items-center justify-center text-coffee-700 hover:bg-coffee-700 hover:text-white transition shadow-sm">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 rounded-2xl bg-coffee-700 text-cream flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-mug-hot text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-coffee-900 tracking-tight">Brew & Bean Coffee</h1>
+                        <p class="text-xs text-coffee-600 font-medium">Phnom Penh, Cambodia</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="hidden md:flex items-center space-x-2 bg-coffee-100/60 border border-coffee-200 px-4 py-2 rounded-full text-xs font-medium text-coffee-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Secure Checkout Experience</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Checkout Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+        <form id="checkoutForm" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Column: Customer Info & Payment Methods (7 Cols) -->
+            <div class="lg:col-span-7 space-y-8">
+                
+                <!-- 3. Customer Information Card -->
+                <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-coffee-200">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-coffee-100 text-coffee-700 flex items-center justify-center font-semibold text-sm">1</div>
+                        <h2 class="text-xl font-bold text-coffee-900">Customer Information</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-2">Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="Vibol Chan" class="w-full bg-coffee-50 border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-2">Phone Number *</label>
+                            <input type="tel" id="phoneNumber" required placeholder="012 345 678" class="w-full bg-coffee-50 border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700 transition">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" required placeholder="vibol.chan@example.com" class="w-full bg-coffee-50 border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700 transition">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-2">Delivery Address *</label>
+                            <textarea id="deliveryAddress" required rows="2" placeholder="Street 240, Daun Penh, Phnom Penh" class="w-full bg-coffee-50 border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700 transition resize-none"></textarea>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-2">Delivery Note (Optional)</label>
+                            <input type="text" id="optionalNote" placeholder="e.g. Less sweet, extra ice, ring bell upon arrival" class="w-full bg-coffee-50 border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700 transition">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Payment Method Card Selection -->
+                <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-coffee-200">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-coffee-100 text-coffee-700 flex items-center justify-center font-semibold text-sm">2</div>
+                        <h2 class="text-xl font-bold text-coffee-900">Payment Method</h2>
+                    </div>
+
+                    <div class="space-y-3" id="paymentOptionsContainer">
+                        
+                        <!-- ABA Pay -->
+                        <label class="payment-card flex items-center justify-between p-4 rounded-2xl border-2 border-coffee-200 cursor-pointer bg-white hover:border-coffee-600 transition group relative">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold shadow-inner">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-coffee-900 flex items-center gap-2">
+                                        ABA Pay <span class="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Instant QR</span>
+                                    </div>
+                                    <p class="text-xs text-coffee-600">Scan using ABA Mobile App</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="paymentMethod" value="aba" class="w-4 h-4 text-coffee-700 accent-coffee-700 focus:ring-coffee-700" checked>
+                        </label>
+
+                        <!-- ACLEDA -->
+                        <label class="payment-card flex items-center justify-between p-4 rounded-2xl border-2 border-coffee-200 cursor-pointer bg-white hover:border-coffee-600 transition group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-bold shadow-inner">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-coffee-900">ACLEDA Pay</div>
+                                    <p class="text-xs text-coffee-600">Scan & pay via ACLEDA Mobile</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="paymentMethod" value="acleda" class="w-4 h-4 text-coffee-700 accent-coffee-700 focus:ring-coffee-700">
+                        </label>
+
+                        <!-- Wing -->
+                        <label class="payment-card flex items-center justify-between p-4 rounded-2xl border-2 border-coffee-200 cursor-pointer bg-white hover:border-coffee-600 transition group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold shadow-inner">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-coffee-900">Wing Money</div>
+                                    <p class="text-xs text-coffee-600">Fast digital wallet payment</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="paymentMethod" value="wing" class="w-4 h-4 text-coffee-700 accent-coffee-700 focus:ring-coffee-700">
+                        </label>
+
+                        <!-- Credit / Debit Card -->
+                        <label class="payment-card flex items-center justify-between p-4 rounded-2xl border-2 border-coffee-200 cursor-pointer bg-white hover:border-coffee-600 transition group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold shadow-inner">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-coffee-900">Credit / Debit Card</div>
+                                    <p class="text-xs text-coffee-600">Visa, Mastercard, JCB accepted</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="paymentMethod" value="card" class="w-4 h-4 text-coffee-700 accent-coffee-700 focus:ring-coffee-700">
+                        </label>
+
+                        <!-- Cash on Delivery -->
+                        <label class="payment-card flex items-center justify-between p-4 rounded-2xl border-2 border-coffee-200 cursor-pointer bg-white hover:border-coffee-600 transition group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-coffee-100 text-coffee-700 flex items-center justify-center text-xl font-bold shadow-inner">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-coffee-900">Cash on Delivery</div>
+                                    <p class="text-xs text-coffee-600">Pay cash directly to courier</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="paymentMethod" value="cod" class="w-4 h-4 text-coffee-700 accent-coffee-700 focus:ring-coffee-700">
+                        </label>
+
+                    </div>
+
+                    <!-- 6. Credit Card Sub-Fields Wrapper -->
+                    <div id="creditCardDetails" class="hidden mt-6 p-5 bg-coffee-50 border border-coffee-200 rounded-2xl space-y-4 transition-all">
+                        <h3 class="text-sm font-bold text-coffee-900 flex items-center gap-2">
+                            <i class="fa-solid fa-lock text-emerald-600"></i> Enter Card Information
+                        </h3>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-1">Cardholder Name</label>
+                            <input type="text" id="ccName" placeholder="Vibol Chan" class="w-full bg-white border border-coffee-200 rounded-xl px-4 py-2.5 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-1">Card Number</label>
+                            <input type="text" id="ccNumber" placeholder="4532 •••• •••• 8892" maxlength="19" class="w-full bg-white border border-coffee-200 rounded-xl px-4 py-2.5 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-1">Expiry Date</label>
+                                <input type="text" id="ccExpiry" placeholder="MM/YY" maxlength="5" class="w-full bg-white border border-coffee-200 rounded-xl px-4 py-2.5 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-coffee-700 mb-1">CVV</label>
+                                <input type="password" id="ccCvv" placeholder="123" maxlength="4" class="w-full bg-white border border-coffee-200 rounded-xl px-4 py-2.5 text-sm text-coffee-900 focus:outline-none focus:ring-2 focus:ring-coffee-700">
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 pt-1">
+                            <input type="checkbox" id="rememberCard" class="rounded text-coffee-700 accent-coffee-700 w-4 h-4">
+                            <label for="rememberCard" class="text-xs text-coffee-700 font-medium">Securely save card for future express orders</label>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- Right Column: 2. Order Summary Card & 7. Place Order Button (5 Cols) -->
+            <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+                <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-coffee-200">
+                    <h2 class="text-xl font-bold text-coffee-900 mb-6 flex items-center justify-between">
+                        <span>Order Summary</span>
+                        <span class="text-xs font-semibold bg-coffee-100 text-coffee-700 px-3 py-1 rounded-full">1 Item</span>
+                    </h2>
+
+                    <!-- Product Details -->
+                    <div class="flex items-start space-x-4 pb-6 border-b border-coffee-100">
+                        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=300&auto=format&fit=crop" alt="Iced Caramel Latte" class="w-20 h-20 rounded-2xl object-cover shadow-sm border border-coffee-200 flex-shrink-0">
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-coffee-900 text-base leading-snug">Iced Caramel Latte</h3>
+                            <p class="text-xs text-coffee-600 mt-0.5">Size: <span class="font-medium text-coffee-800">Large</span></p>
+                            <p class="text-xs text-coffee-600">Quantity: <span class="font-medium text-coffee-800">2</span></p>
+                            <p class="text-xs text-coffee-600 mt-1">Add-ons: <span class="text-coffee-800 font-medium">+ Oat Milk, Extra Shot</span></p>
+                            <div class="text-sm font-bold text-coffee-700 mt-2">$4.50 <span class="text-xs font-normal text-coffee-500">each</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Cost Breakdown Calculations -->
+                    <div class="py-5 space-y-3 text-sm border-b border-coffee-100">
+                        <div class="flex justify-between text-coffee-700">
+                            <span>Subtotal</span>
+                            <span class="font-semibold text-coffee-900">$9.00</span>
+                        </div>
+                        <div class="flex justify-between text-emerald-600">
+                            <span>Discount (Promo Code)</span>
+                            <span class="font-semibold">-$1.00</span>
+                        </div>
+                        <div class="flex justify-between text-coffee-700">
+                            <span>Delivery Fee</span>
+                            <span class="font-semibold text-coffee-900">$1.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Total Price Display -->
+                    <div class="pt-5 flex items-center justify-between mb-8">
+                        <div>
+                            <span class="text-base font-bold text-coffee-900">Total Amount</span>
+                            <p class="text-xs text-coffee-500">Including VAT & service fee</p>
+                        </div>
+                        <span id="displayTotalPrice" class="text-2xl font-extrabold text-coffee-700">$9.00</span>
+                    </div>
+
+                    <!-- 7. Place Order Button -->
+                    <button type="submit" id="placeOrderBtn" class="w-full bg-coffee-700 hover:bg-coffee-800 text-cream font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition transform active:scale-[0.99] flex items-center justify-center space-x-3 text-base">
+                        <span id="btnText">Pay $9.00</span>
+                        <i id="btnIcon" class="fa-solid fa-arrow-right-long transition group-hover:translate-x-1"></i>
+                        <svg id="btnLoader" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                    
+                    <p class="text-center text-[11px] text-coffee-500 mt-4">
+                        <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> Guaranteed 256-Bit Encrypted Payment
+                    </p>
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 border-t border-coffee-200 py-6 mt-12 text-center text-xs text-coffee-600">
+        <p>&copy; 2026 Brew & Bean Coffee Co. All rights reserved. Crafted with care in Cambodia.</p>
+    </footer>
+
+    <!-- 5. QR Payment Modal -->
+    <div id="qrModal" class="fixed inset-0 bg-coffee-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-coffee-200 transform scale-95 transition-all duration-300" id="qrModalContent">
+            
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center space-x-2">
+                    <span id="qrModalBadge" class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase">ABA Pay</span>
+                    <h3 class="font-bold text-coffee-900 text-lg">Scan to Pay</h3>
+                </div>
+                <button type="button" onclick="closeQrModal()" class="w-8 h-8 rounded-full bg-coffee-100 text-coffee-700 flex items-center justify-center hover:bg-coffee-200 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="text-center space-y-4">
+                <!-- Shop & Amount Details -->
+                <div class="bg-coffee-50 p-4 rounded-2xl border border-coffee-200">
+                    <p class="text-xs text-coffee-600">Merchant Name</p>
+                    <p class="font-bold text-coffee-900 text-base">Brew & Bean Coffee</p>
+                    <div class="mt-2 pt-2 border-t border-coffee-200/60 flex justify-between items-center px-2">
+                        <span class="text-xs text-coffee-600">Total Payable:</span>
+                        <span id="qrModalAmount" class="font-extrabold text-coffee-700 text-xl">$9.00</span>
+                    </div>
+                </div>
+
+                <!-- QR Code Placeholder Graphic -->
+                <div class="bg-white p-4 rounded-2xl border-2 border-dashed border-coffee-300 inline-block shadow-inner relative group">
+                    <img id="qrCodeImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=BrewAndBeanCoffeePayment9.00USD" alt="Payment QR Code" class="w-48 h-48 mx-auto rounded-xl object-contain">
+                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition rounded-xl flex items-center justify-center">
+                        <span class="bg-white/90 text-coffee-900 text-[11px] font-bold px-2.5 py-1 rounded-full shadow">Scan with Mobile App</span>
+                    </div>
+                </div>
+
+                <p class="text-xs text-coffee-600 font-medium">Open your banking app and scan the QR code above</p>
+
+                <!-- Upload Payment Screenshot Section -->
+                <div class="space-y-2 pt-2 text-left">
+                    <label class="block text-xs font-semibold text-coffee-700 uppercase tracking-wider">Upload Payment Receipt Screenshot</label>
+                    <div class="flex items-center space-x-3">
+                        <label class="flex-grow flex items-center justify-center px-4 py-3 border border-dashed border-coffee-300 rounded-xl bg-coffee-50 hover:bg-coffee-100 cursor-pointer transition text-xs text-coffee-700 font-medium">
+                            <i class="fa-solid fa-cloud-arrow-up mr-2 text-coffee-600 text-sm"></i>
+                            <span id="uploadFileName">Choose receipt image...</span>
+                            <input type="file" id="receiptUpload" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                        </label>
+                    </div>
+                    <!-- Image Preview Container -->
+                    <div id="imagePreviewContainer" class="hidden relative mt-2 w-full h-24 bg-coffee-50 border border-coffee-200 rounded-xl overflow-hidden flex items-center justify-center">
+                        <img id="previewImg" src="" alt="Receipt Preview" class="h-full object-contain">
+                        <button type="button" onclick="removeImage()" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow hover:bg-red-600"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <!-- Complete Payment Button inside Modal -->
+                <button type="button" onclick="confirmQrPayment()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition text-sm flex items-center justify-center space-x-2 mt-4">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Payment Completed</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Payment Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-coffee-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-coffee-200 text-center transform scale-95 transition-all duration-300" id="successModalContent">
+            
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
+                <i class="fa-solid fa-check text-2xl animate-bounce"></i>
+            </div>
+
+            <h3 class="text-2xl font-bold text-coffee-900 tracking-tight">Payment Successful!</h3>
+            <p class="text-sm text-coffee-600 mt-1">Thank you for your order. We are brewing your coffee now!</p>
+
+            <!-- Order Ticket Summary -->
+            <div class="bg-coffee-50 rounded-2xl p-4 my-6 text-left border border-coffee-200 space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-coffee-600">Order Number:</span>
+                    <span class="font-bold text-coffee-900" id="successOrderNo">#BB-84920</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-coffee-600">Total Paid:</span>
+                    <span class="font-bold text-coffee-900" id="successTotalPaid">$9.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-coffee-600">Est. Prep Time:</span>
+                    <span class="font-bold text-emerald-600">10 - 15 mins</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button type="button" onclick="window.location.reload()" class="w-full bg-coffee-700 hover:bg-coffee-800 text-cream font-bold py-3 px-6 rounded-2xl shadow transition text-sm">
+                    View Order Status
+                </button>
+                <button type="button" onclick="window.location.reload()" class="w-full bg-coffee-100 hover:bg-coffee-200 text-coffee-800 font-semibold py-3 px-6 rounded-2xl transition text-sm">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification System -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center space-x-3 bg-coffee-900 text-cream px-5 py-3.5 rounded-2xl shadow-xl border border-coffee-700 text-xs font-medium">
+        <i id="toastIcon" class="fa-solid fa-circle-info text-blue-400"></i>
+        <span id="toastMsg">Notification message goes here.</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // State Variables
+        const currentTotal = 9.00;
+        let selectedPaymentMethod = 'aba';
+        let uploadedReceiptFile = null;
+
+        // Payment method DOM selections
+        const paymentCards = document.querySelectorAll('.payment-card');
+        const creditCardDetails = document.getElementById('creditCardDetails');
+        const checkoutForm = document.getElementById('checkoutForm');
+        
+        // Modal elements
+        const qrModal = document.getElementById('qrModal');
+        const qrModalContent = document.getElementById('qrModalContent');
+        const successModal = document.getElementById('successModal');
+        const successModalContent = document.getElementById('successModalContent');
+
+        // Setup Event Listeners for payment radio selection UI styling
+        paymentCards.forEach(card => {
+            const radio = card.querySelector('input[type="radio"]');
+            
+            card.addEventListener('click', () => {
+                paymentCards.forEach(c => {
+                    c.classList.remove('border-coffee-700', 'bg-coffee-50/50');
+                    c.classList.add('border-coffee-200');
+                });
+                card.classList.add('border-coffee-700', 'bg-coffee-50/50');
+                radio.checked = true;
+                selectedPaymentMethod = radio.value;
+
+                // Toggle Credit Card subfields visibility
+                if (selectedPaymentMethod === 'card') {
+                    creditCardDetails.classList.remove('hidden');
+                } else {
+                    creditCardDetails.classList.add('hidden');
+                }
+            });
+        });
+
+        // Initialize default selected style
+        document.querySelector('input[value="aba"]').closest('.payment-card').classList.add('border-coffee-700', 'bg-coffee-50/50');
+
+        // Form Submission Flow Handler
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate basic required fields
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const address = document.getElementById('deliveryAddress').value.trim();
+
+            if (!name || !phone || !email || !address) {
+                showToast('Please fill out all required customer information fields.', 'error');
+                return;
+            }
+
+            // Additional verification for Credit Card if selected
+            if (selectedPaymentMethod === 'card') {
+                const ccName = document.getElementById('ccName').value.trim();
+                const ccNumber = document.getElementById('ccNumber').value.trim();
+                const ccExpiry = document.getElementById('ccExpiry').value.trim();
+                const ccCvv = document.getElementById('ccCvv').value.trim();
+
+                if (!ccName || !ccNumber || !ccExpiry || !ccCvv) {
+                    showToast('Please complete all credit card fields.', 'error');
+                    return;
+                }
+            }
+
+            // If QR payment method (ABA, ACLEDA, Wing) is chosen, open respective QR modal
+            if (['aba', 'acleda', 'wing'].includes(selectedPaymentMethod)) {
+                openQrModal(selectedPaymentMethod);
+                return;
+            }
+
+            // For Card or COD, run mock server processing simulation
+            simulateLoadingAndSuccess();
+        });
+
+        // Open QR Modal helper
+        function openQrModal(method) {
+            const badge = document.getElementById('qrModalBadge');
+            const names = {
+                'aba': 'ABA Pay',
+                'acleda': 'ACLEDA Pay',
+                'wing': 'Wing Money'
+            };
+            badge.innerText = names[method] || 'QR Payment';
+            document.getElementById('qrModalAmount').innerText = `$${currentTotal.toFixed(2)}`;
+
+            qrModal.classList.remove('opacity-0', 'pointer-events-none');
+            qrModalContent.classList.remove('scale-95');
+            qrModalContent.classList.add('scale-100');
+        }
+
+        function closeQrModal() {
+            qrModal.classList.add('opacity-0', 'pointer-events-none');
+            qrModalContent.classList.remove('scale-100');
+            qrModalContent.classList.add('scale-95');
+        }
+
+        // Handle File Selection Preview
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                uploadedReceiptFile = file;
+                document.getElementById('uploadFileName').innerText = file.name;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreviewContainer').classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+                showToast('Receipt screenshot attached successfully!', 'success');
+            }
+        }
+
+        function removeImage() {
+            uploadedReceiptFile = null;
+            document.getElementById('receiptUpload').value = '';
+            document.getElementById('uploadFileName').innerText = 'Choose receipt image...';
+            document.getElementById('imagePreviewContainer').classList.add('hidden');
+        }
+
+        // Triggered after scanning/uploading screenshot in QR Modal
+        function confirmQrPayment() {
+            if (!uploadedReceiptFile) {
+                showToast('Please upload your payment confirmation screenshot first.', 'error');
+                return;
+            }
+            closeQrModal();
+            simulateLoadingAndSuccess();
+        }
+
+        // Loading animation & success trigger
+        function simulateLoadingAndSuccess() {
+            const btn = document.getElementById('placeOrderBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnLoader = document.getElementById('btnLoader');
+
+            // Apply loading state
+            btn.disabled = true;
+            btnText.innerText = "Processing Payment...";
+            btnIcon.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+
+            setTimeout(() => {
+                // Reset button state
+                btn.disabled = false;
+                btnText.innerText = "Pay $9.00";
+                btnIcon.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+
+                // Trigger Success Modal
+                openSuccessModal();
+            }, 1800);
+        }
+
+        function openSuccessModal() {
+            document.getElementById('successOrderNo').innerText = `#BB-${Math.floor(10000 + Math.random() * 90000)}`;
+            document.getElementById('successTotalPaid').innerText = `$${currentTotal.toFixed(2)}`;
+
+            successModal.classList.remove('opacity-0', 'pointer-events-none');
+            successModalContent.classList.remove('scale-95');
+            successModalContent.classList.add('scale-100');
+        }
+
+        // Toast Notification Function
+        function toastTimeout;
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = message;
+            
+            if (type === 'error') {
+                toastIcon.className = "fa-solid fa-triangle-exclamation text-red-400";
+            } else if (type === 'success') {
+                toastIcon.className = "fa-solid fa-circle-check text-emerald-400";
+            } else {
+                toastIcon.className = "fa-solid fa-circle-info text-blue-400";
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
